@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pokedexpesantez": {
+      "hosting": {
+        "app": [
+          "pokedexpesantez"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pokedexpesantez"
+  }
+}

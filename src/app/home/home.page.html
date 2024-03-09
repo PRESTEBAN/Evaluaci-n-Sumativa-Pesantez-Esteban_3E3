@@ -1,20 +1,44 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <ion-title class="ion-text-center">
+      <strong>Pokedex</strong>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="pokedex-background"> 
+  <ion-row class="ion-align-items-center ion-justify-content-center">
+    <ion-card color="dark" text-color="light">
+      <ion-card-header>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+        
+          <ion-col size="12" class="button-container ion-text-center">
+            <ion-card-subtitle class="ion-text-center">{{ cardTitle }}</ion-card-subtitle>
+            <img *ngIf="pokemonImage" [src]="pokemonImage" alt="Pokemon Image" class="center-image">
+            <ion-card-subtitle class="ion-text-center"><a>tipo:</a>{{ pokemonTypes }}</ion-card-subtitle>
+          </ion-col>
+        </ion-row>
+      </ion-card-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+      <!-- Barra de búsqueda con ion-input y botones de incremento/decremento -->
+      <ion-card-content class="search-input-container">
+        <ion-item lines="none" class="transparent-input">
+          <ion-button fill="clear" class="increment-button" (click)="incrementInput()">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+          <ion-input type="number" placeholder="Pokemon Number" [(ngModel)]="searchPokemonID"></ion-input>
+          <ion-button fill="clear" class="decrement-button" (click)="decrementInput()">
+            <ion-icon name="remove"></ion-icon>
+          </ion-button>
+          <ion-button fill="clear" class="search-button" (click)="searchByPokemonID()">
+            <ion-icon name="search-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+        <div class="input-line"></div>
+      </ion-card-content>
+    </ion-card>
+    
+    <br>
+
+  </ion-row>
 </ion-content>
